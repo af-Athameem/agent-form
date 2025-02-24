@@ -367,7 +367,7 @@ with main_col:
 
     # Welcome message on first load (only shows once)
     if st.session_state.get("show_welcome") and not st.session_state.get("welcome_shown"):
-        st.info("👋 Welcome to the Agent Form! Use this tool to document use cases across your organization. To build AI Agents that better fit your needs.")
+        st.info("👋 Welcome to the Agent Form! Use this tool to document use cases across your organization. So we can build you an AI Agents that better fit your needs!")
         st.session_state["welcome_shown"] = True
 
     # Business Information Section
