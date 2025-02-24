@@ -10,12 +10,12 @@ st.set_page_config(
     )
 
 
-GRAPH_API_BASE_URL = "https://graph.microsoft.com/v1.0"
+# GRAPH_API_BASE_URL = "https://graph.microsoft.com/v1.0"
 
-# Redirect to login if  not authintcated
-if "authenticated" not in st.session_state or not st.session_state["authenticated"]:
-    st.warning("🔒 Please log in first.")
-    st.switch_page("pages/login.py")  
+## Redirect to login if  not authintcated
+# if "authenticated" not in st.session_state or not st.session_state["authenticated"]:
+#     st.warning("🔒 Please log in first.")
+#     st.switch_page("pages/login.py")  
 
 
 # Streamlit UI
@@ -74,14 +74,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Fetch token and site ID
-TOKEN = st.session_state.get("token")
-SITE_ID = st.session_state.get("site_id")
+## Fetch token and site ID
+# TOKEN = st.session_state.get("token")
+# SITE_ID = st.session_state.get("site_id")
 
-if not TOKEN or not SITE_ID:
-    st.error("🔑 Authentication required. Please log in.")
-else:
-    headers = {"Authorization": f"Bearer {TOKEN}"}
+# if not TOKEN or not SITE_ID:
+#     st.error("🔑 Authentication required. Please log in.")
+# else:
+#     headers = {"Authorization": f"Bearer {TOKEN}"}
 
 st.header("Agent Form")
 
