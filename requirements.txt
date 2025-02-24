@@ -2,5 +2,4 @@ streamlit_nested_layout
 requests
 typing
 datetime
-json
 pandas
