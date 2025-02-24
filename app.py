@@ -181,8 +181,7 @@ if st.button("Add Specific Target Section"):
         st.rerun()
 
 st.subheader("Upload Files")
-st.write("Please attach any associated files that may help better comprehend your needs.")
-uploaded_files = st.file_uploader("Upload files", accept_multiple_files=True)
+uploaded_files = st.file_uploader("Please attach any associated files that may help better comprehend your needs.", accept_multiple_files=True)
 
 
 
