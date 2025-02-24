@@ -98,7 +98,7 @@ business_name = st.text_input(
     key="question_input"
 )
 # Collapsible expander for Target Section and Use Cases
-with st.expander("Specific Target Section", expanded=True):
+with st.expander("Specific Target Section", expanded=False):
 
     # Input for Target Section (No predefined options)
     target = st.text_input(
