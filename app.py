@@ -337,7 +337,7 @@ progress_percentage = (completed_steps / total_steps) * 100
 
 # Render progress in the left column
 with progress_col:
-    st.markdown(f"<h5 style='text-align: center;'>{"Progress" int(progress_percentage)}%</h2>", unsafe_allow_html=True)
+    st.markdown(f"<h5 style='text-align: center;'>{int(progress_percentage)}%</h2>", unsafe_allow_html=True)
     
     # Use a skinnier vertical progress bar
     progress_container = st.container()
