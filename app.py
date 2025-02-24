@@ -367,7 +367,7 @@ with main_col:
 
     # Welcome message on first load (only shows once)
     if st.session_state.get("show_welcome") and not st.session_state.get("welcome_shown"):
-        st.info("👋 Welcome to the Agent Form! Use this tool to document use cases across your organization. Start by adding your business information and creating sections for different departments.")
+        st.info("👋 Welcome to the Agent Form! Use this tool to document use cases across your organization. To build AI Agents that better fit your needs.")
         st.session_state["welcome_shown"] = True
 
     # Business Information Section
@@ -419,9 +419,9 @@ with main_col:
                 st.text_area("Current Process", key=f"current_{section}", 
                             help="Describe how this process is currently handled")
             with use_case_cols[1]:
-                st.slider("Business Value (1-10)", 1, 10, 5, key=f"value_{section}", 
+                st.slider("Business Value (1-10)", 1, 10, key=f"value_{section}", 
                          help="How valuable is this to the business?")
-                st.slider("User Impact (1-10)", 1, 10, 5, key=f"impact_{section}", 
+                st.slider("User Impact (1-10)", 1, 10, key=f"impact_{section}", 
                           help="How much will this impact users?")
                 st.selectbox("Feasibility", ["High", "Medium", "Low"], 
                             index=1, key=f"feasibility_{section}", 
@@ -463,35 +463,28 @@ with main_col:
 
             # Display Existing Use Cases
             if use_cases:
-                st.subheader("Existing Use Cases")
+                st.markdown("#### Existing Use Cases")
                 for idx, case in enumerate(use_cases):
                     with st.container():
                         st.markdown(f"""
                         <div class='use-case-box'>
                             <div style="display: flex; justify-content: space-between; align-items: center">
-                                <h3>{case.get('use_case', 'Untitled Use Case')}</h3>
-                            </div>
-                            <p><strong>Description:</strong> {case.get('description', 'No description provided')}</p>
-                            
-                            {f"<p><strong>Current Process:</strong> {case.get('current_process', 'Not specified')}</p>" if case.get('current_process') else ""}
-                            
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;">
-                                <span class='metric-badge'>Value: {case.get('value', 'N/A')}/10</span>
-                                <span class='metric-badge'>Impact: {case.get('impact', 'N/A')}/10</span>
-                                <span class='metric-badge'>Feasibility: {case.get('feasibility', 'N/A')}</span>
-                                <span class='metric-badge'>Frequency: {case.get('frequency', 'N/A')}</span>
-                                <span class='metric-badge'>Priority: {case.get('priority', 'N/A')}</span>
-                            </div>
-                            
-                            {f"<p><strong>Risks & Dependencies:</strong> {case.get('risks', 'None')}</p>" if case.get('risks') else ""}
-                            {f"<p><strong>Compliance Requirements:</strong> {case.get('compliance', 'None')}</p>" if case.get('compliance') else ""}
+                            <h3>{case.get('use_case', 'Untitled Use Case')}</h3>
                         </div>
-                        """, unsafe_allow_html=True)
+                        <p><strong>Description:</strong> {case.get('description', 'No description provided')}</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;">
+                            <span class='metric-badge'>Value: {case.get('value', 'N/A')}/10</span>
+                            <span class='metric-badge'>Impact: {case.get('impact', 'N/A')}/10</span>
+                            <span class='metric-badge'>Feasibility: {case.get('feasibility', 'N/A')}</span>
+                            <span class='metric-badge'>Priority: {case.get('priority', 'N/A')}</span>
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
                         
                         # Server-side delete button
                         delete_col, _ = st.columns([1, 5])
                         with delete_col:
-                            if st.button(f"Delete Use Case", key=f"del_case_{section}_{idx}", 
+                            if st.button("Delete Use Case", key=f"del_case_{section}_{idx}", 
                                         on_click=on_delete_case_click, args=(section, idx)):
                                 pass  # Logic handled in callback function
 
