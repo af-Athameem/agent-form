@@ -1,2 +1,7 @@
 streamlit_nested_layout
 requests
+typing
+datetime
+base64
+json
+pandas
