@@ -71,6 +71,9 @@ st.markdown("""
         [data-testid="stSidebarNav"] {
             display: none;
         }
+        #GithubIcon {
+          visibility: hidden;
+        }
     </style>
 """, unsafe_allow_html=True)
 
